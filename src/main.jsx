@@ -17,6 +17,7 @@ import AddBlog from "./Components/AddBlog";
 import WishList from "./Pages/WishList";
 import FeaturedBlog from "./Pages/FeaturedBlog";
 import AllBlog from "./Pages/AllBlog";
+import ViewDetails from "./Pages/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/blog"),
       },
       {
         path: "/login",
@@ -79,6 +81,15 @@ const router = createBrowserRouter([
             <WishList></WishList>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/view-details/:_id",
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/blog"),
       },
     ],
   },

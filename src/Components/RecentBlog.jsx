@@ -1,36 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import BlogCard from "./BlogCard";
 
 const RecentBlog = () => {
-  return (
-    <div>
-      <div className="">
-        <div className="rounded border h-full">
-          <figure>
-            <img src="photo" alt="image" className="w-full h-[200px]" />
-          </figure>
-          <div className="card-body">
-            <div className="flex justify-between">
-              <h2 className="card-title">title</h2>
-              <h2 className="">category</h2>
-            </div>
+  const getBlog = useLoaderData();
+  console.log(getBlog);
 
-            <p>short_description...</p>
-            <div className="card-actions justify-center">
-              <NavLink
-                to={`/view-details/`}
-                className="btn btn-sm mt-2 rounded text-pink-700 border-pink-900 bg-transparent hover:bg-pink-900 hover:text-white"
-              >
-                View Details
-              </NavLink>
-              <NavLink
-                to={`/view-details/`}
-                className="btn btn-sm mt-2 rounded text-pink-700 border-pink-900 bg-transparent hover:bg-pink-900 hover:text-white"
-              >
-                Add WishList
-              </NavLink>
-            </div>
-          </div>
-        </div>
+  return (
+    <div className="bg-no-repeat bg-cover min-h-screen p-2">
+      <div className="md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 py-8 md:py-20">
+        {getBlog.slice(0, 6).map((Blog) => (
+          <>
+            <BlogCard key={Blog._id} Blog={Blog}></BlogCard>
+          </>
+        ))}
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const AddBlog = () => {
     const email = form.email.value;
     const user_name = form.user_name.value;
 
-    const addNewItem = {
+    const addNewBlog = {
       title,
       category_name,
       short_description,
@@ -30,15 +30,15 @@ const AddBlog = () => {
       user_name,
     };
 
-    console.log(addNewItem);
-    const url = " ";
+    console.log(addNewBlog);
+    const url = "http://localhost:5000/addBlog";
     // send data to the server
     fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(addNewItem),
+      body: JSON.stringify(addNewBlog),
     })
       .then((res) => res.json())
       .then((data) => {
