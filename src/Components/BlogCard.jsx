@@ -11,7 +11,7 @@ const BlogCard = ({ Blog }) => {
 
   const name = user.displayName;
   const email = user.email;
-
+  const b_id = _id;
   const handleWishList = () => {
     const addNewBlog = {
       title,
@@ -19,13 +19,13 @@ const BlogCard = ({ Blog }) => {
       short_description,
       long_description,
       image,
-      _id,
       name,
+      b_id,
       email,
     };
 
     // console.log(addNewBlog);
-    const url = "http://localhost:5000/wishList";
+    const url = "https://prose-paradise-server.vercel.app/wishList";
     // send data to the server
     fetch(url, {
       method: "POST",

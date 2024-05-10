@@ -31,7 +31,7 @@ const AddBlog = () => {
     };
 
     console.log(addNewBlog);
-    const url = "http://localhost:5000/addBlog";
+    const url = "https://prose-paradise-server.vercel.app/addBlog";
     // send data to the server
     fetch(url, {
       method: "POST",

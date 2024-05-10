@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import BlogCard from "./BlogCard";
+import PropTypes from "prop-types";
 
 const RecentBlog = () => {
   const getBlog = useLoaderData();
@@ -16,6 +17,10 @@ const RecentBlog = () => {
       </div>
     </div>
   );
+};
+
+RecentBlog.propTypes = {
+  Blog: PropTypes.object,
 };
 
 export default RecentBlog;

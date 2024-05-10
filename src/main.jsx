@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/blog"),
+        loader: () => fetch("https://prose-paradise-server.vercel.app/blog"),
       },
       {
         path: "/login",
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/blog"),
+        loader: () => fetch("https://prose-paradise-server.vercel.app/blog"),
       },
     ],
   },
