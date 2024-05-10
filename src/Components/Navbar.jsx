@@ -140,14 +140,16 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="">
+          <a className="text-xl">
             {/* <img
               src="/public/images/2-removebg-preview.png"
               className="w-[40px] h-auto"
               alt=""
             />{" "} */}
             Prose
-            <span className="text-amber-600 font-bold text-xl">Paradise</span>
+            <span className="text-amber-600 font-semibold text-xl">
+              Paradise
+            </span>
           </a>
         </div>
         <div className="navbar-center hidden md:flex">
