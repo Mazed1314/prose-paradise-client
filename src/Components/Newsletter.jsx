@@ -1,6 +1,29 @@
-import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Newsletter = () => {
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    const Uname = e.target.name.value;
+    const email = e.target.email.value;
+    if (!Uname || !email) {
+      Swal.fire({
+        title: "Error!",
+        text: "please give your email and name",
+        icon: "error",
+        confirmButtonText: "ok",
+      });
+    } else {
+      Swal.fire({
+        title: "Success!",
+        text: "Thank you for subscribing to ournewsletter",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+      e.target.name.value = null;
+      e.target.email.value = null;
+    }
+  };
+
   return (
     <div className=" flex flex-col md:flex-row">
       <div className="my-auto w-full">
@@ -15,24 +38,28 @@ const Newsletter = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="mx-auto flex flex-col gap-5 my-10 w-7/12">
+        <form
+          onSubmit={handleSubscribe}
+          className="mx-auto flex flex-col gap-5 my-10 w-7/12"
+        >
           <input
+            name="name"
             className="w-full border pl-3 py-2"
             placeholder="full name"
             type="text"
           />
           <input
+            name="email"
             className="w-full border pl-3 py-2"
             placeholder="your email address"
             type="text"
           />
-          <NavLink
-            to={"/"}
+          <input
+            type="submit"
+            value="Subscribe"
             className="w-full text-lg border py-2 rounded-0 text-center hover:bg-black hover:text-white"
-          >
-            Subscribe
-          </NavLink>
-        </div>
+          />
+        </form>
       </div>
     </div>
   );

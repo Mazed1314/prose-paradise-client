@@ -9,8 +9,8 @@ const BlogCard = ({ Blog }) => {
   const { _id, title, category, short_description, long_description, image } =
     Blog;
 
-  const name = user.displayName;
-  const email = user.email;
+  const name = user?.displayName;
+  const email = user?.email;
   const b_id = _id;
   const handleWishList = () => {
     const addNewBlog = {
@@ -23,29 +23,36 @@ const BlogCard = ({ Blog }) => {
       b_id,
       email,
     };
-
-    // console.log(addNewBlog);
     const url = "https://prose-paradise-server.vercel.app/wishList";
-    // send data to the server
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addNewBlog),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: " Successfully Added to Wish list",
-            icon: "success",
-            confirmButtonText: "Cool",
+    {
+      user
+        ? // send data to the server
+          fetch(url, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(addNewBlog),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.insertedId) {
+                Swal.fire({
+                  title: "Success!",
+                  text: " Successfully Added to Wish list",
+                  icon: "success",
+                  confirmButtonText: "Cool",
+                });
+              }
+            })
+        : Swal.fire({
+            title: "Warning!",
+            text: "sorry you can't add to wish list, At first sign in.",
+            icon: "warning",
+            confirmButtonText: "ok",
           });
-        }
-      });
+    }
   };
 
   return (
