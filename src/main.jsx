@@ -14,6 +14,9 @@ import EditProfile from "./Pages/EditProfile";
 import { HelmetProvider } from "react-helmet-async";
 import PrivateRoute from "./Components/PrivateRoute";
 import AddBlog from "./Components/AddBlog";
+import WishList from "./Pages/WishList";
+import FeaturedBlog from "./Pages/FeaturedBlog";
+import AllBlog from "./Pages/AllBlog";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +57,26 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddBlog></AddBlog>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/all-blogs",
+        element: <AllBlog></AllBlog>,
+      },
+      {
+        path: "/featured-blogs",
+        element: (
+          <PrivateRoute>
+            <FeaturedBlog></FeaturedBlog>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/wish-list",
+        element: (
+          <PrivateRoute>
+            <WishList></WishList>
           </PrivateRoute>
         ),
       },

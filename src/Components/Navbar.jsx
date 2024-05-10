@@ -46,6 +46,14 @@ const Navbar = () => {
       >
         Home
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
+        }
+        to="/add-blog"
+      >
+        Add Blog
+      </NavLink>
 
       <div className="lg:block md:hidden block lg:space-x-5">
         <NavLink
@@ -117,15 +125,6 @@ const Navbar = () => {
           </ul>
         </details>
       </li>
-
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
-        }
-        to="/add-blog"
-      >
-        Add Blog
-      </NavLink>
     </>
   );
   return (

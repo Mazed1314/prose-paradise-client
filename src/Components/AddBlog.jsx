@@ -12,27 +12,19 @@ const AddBlog = () => {
 
     const form = event.target;
 
-    const item_name = form.item_name.value;
-    const subcategory_name = form.subcategory_name.value;
+    const title = form.title.value;
+    const category_name = form.category_name.value;
     const short_description = form.short_description.value;
-    const stock_status = form.stock_status.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const processing_time = form.processing_time.value;
-    const customization = form.customization.value;
+    const long_description = form.long_description.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const user_name = form.user_name.value;
 
     const addNewItem = {
-      item_name,
-      subcategory_name,
+      title,
+      category_name,
       short_description,
-      stock_status,
-      price,
-      rating,
-      processing_time,
-      customization,
+      long_description,
       photo,
       email,
       user_name,
