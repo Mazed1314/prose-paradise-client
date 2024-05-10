@@ -5,7 +5,7 @@ const ViewDetails = () => {
   const cards = useLoaderData();
   const { _id } = useParams();
   const card = cards.find((blog) => blog._id == _id);
-  const { title, category_name, long_description, photo } = card;
+  const { title, category, long_description, image } = card;
   return (
     <div className="bg-transparent">
       <div className="mx-2 md:mx-20 bg-transparent">
@@ -14,13 +14,11 @@ const ViewDetails = () => {
         </Helmet>
 
         <div className="w-full">
-          <img src={photo} alt="" className="w-full h-[200px] lg:h-[500px]" />
+          <img src={image} alt="" className="w-full h-[200px] lg:h-[500px]" />
         </div>
         <h2 className="text-center font-bold text-2xl my-6 pt-4 rounded-t-md">
           {title} {"("}
-          <span className="text-gray-600 text-md font-medium">
-            {category_name}
-          </span>
+          <span className="text-gray-600 text-md font-medium">{category}</span>
           {")"}
         </h2>
         <div className="px-2 md:px-8">

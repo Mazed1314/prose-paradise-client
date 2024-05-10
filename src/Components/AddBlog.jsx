@@ -13,19 +13,19 @@ const AddBlog = () => {
     const form = event.target;
 
     const title = form.title.value;
-    const category_name = form.category_name.value;
+    const category = form.category_name.value;
     const short_description = form.short_description.value;
     const long_description = form.long_description.value;
-    const photo = form.photo.value;
+    const image = form.photo.value;
     const email = form.email.value;
     const user_name = form.user_name.value;
 
     const addNewBlog = {
       title,
-      category_name,
+      category,
       short_description,
       long_description,
-      photo,
+      image,
       email,
       user_name,
     };
@@ -46,7 +46,7 @@ const AddBlog = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "Craft Added Successfully",
+            text: "Blog Added Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
