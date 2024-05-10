@@ -47,6 +47,77 @@ const Navbar = () => {
         Home
       </NavLink>
 
+      <div className="lg:block md:hidden block lg:space-x-5">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
+          }
+          to="/all-blogs"
+        >
+          All Blogs
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
+          }
+          to="/featured-blogs"
+        >
+          Featured Blogs
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "border-b-4 pb-2 border-black font-bold" : "font-bold"
+          }
+          to="/wish-list"
+        >
+          WishList
+        </NavLink>
+      </div>
+
+      <li className="md:block lg:hidden hidden">
+        <details>
+          <summary>Pages</summary>
+          <ul className="p-2">
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "md:border-b-4 pb-2 border-black font-bold"
+                    : "font-bold"
+                }
+                to="/all-blogs"
+              >
+                All Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "md:border-b-4 pb-2 border-black font-bold"
+                    : "font-bold"
+                }
+                to="/featured-blogs"
+              >
+                Featured Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-4 pb-2 border-black font-bold"
+                    : "font-bold"
+                }
+                to="/wish-list"
+              >
+                WishList
+              </NavLink>
+            </li>
+          </ul>
+        </details>
+      </li>
+
       <NavLink
         className={({ isActive }) =>
           isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
@@ -55,61 +126,6 @@ const Navbar = () => {
       >
         Add Blog
       </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? "border-b-4 pb-2 border-black font-bold" : "font-bold"
-        }
-        to="/wish-list"
-      >
-        WishList
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
-        }
-        to="/all-blogs"
-      >
-        All Blogs
-      </NavLink>
-      {/* <div>
-        <div className="navbar-start">
-          <div className="dropdown">
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div> 
-        <div className="hidden border lg:flex">
-          <ul className="menu menu-horizontal p-0 ">
-            <li className=" p-0">
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-        </div>
-      </div>*/}
     </>
   );
   return (
@@ -155,6 +171,7 @@ const Navbar = () => {
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 flex gap-8">{navLinks}</ul>
         </div>
+
         <div className="navbar-end">
           <label className="cursor-pointer grid place-items-center pr-1">
             <input

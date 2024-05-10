@@ -1,0 +1,204 @@
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
+const AddBlog = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleAddBlog = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const item_name = form.item_name.value;
+    const subcategory_name = form.subcategory_name.value;
+    const short_description = form.short_description.value;
+    const stock_status = form.stock_status.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const processing_time = form.processing_time.value;
+    const customization = form.customization.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const user_name = form.user_name.value;
+
+    const addNewItem = {
+      item_name,
+      subcategory_name,
+      short_description,
+      stock_status,
+      price,
+      rating,
+      processing_time,
+      customization,
+      photo,
+      email,
+      user_name,
+    };
+
+    console.log(addNewItem);
+    const url = " ";
+    // send data to the server
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addNewItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Craft Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          navigate(-1);
+        }
+      });
+  };
+
+  return (
+    <div>
+      <Helmet>
+        <title>Add Blog</title>
+      </Helmet>
+      <div className="bg-transparent border border-pink-800 shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
+        <h2 className="text-3xl text-center font-semibold my-4">Add a Blog</h2>
+        <form onSubmit={handleAddBlog}>
+          <div className="flex flex-col md:flex-row gap-5 w-full">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">
+                  User Name
+                </span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="text"
+                  name="user_name"
+                  defaultValue={user.displayName}
+                  placeholder="user name"
+                  className="input input-bordered border-pink-800 w-full"
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">
+                  User Email
+                </span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="text"
+                  name="email"
+                  defaultValue={user.email}
+                  placeholder="user email"
+                  className="input input-bordered border-pink-800 w-full"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+          <div className="w-full">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">Title</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="title"
+                  className="input input-bordered border-pink-800 w-full"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text text-lg font-semibold">Image</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="text"
+                name="photo"
+                placeholder="give image URL"
+                className="input input-bordered border-pink-800  w-full"
+                required
+              />
+            </label>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 my-3">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">
+                  Category Name
+                </span>
+              </label>
+              <select
+                name="category_name"
+                className="rounded-md border border-pink-800"
+              >
+                <option value="Poem">Poem</option>
+                <option value="Novel">Novel</option>
+                <option value="Fiction">Fiction </option>
+                <option value="Epic">Epic</option>
+              </select>
+            </div>
+            <div className="form-control col-span-3">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">
+                  Short Description
+                </span>
+              </label>
+              <textarea
+                className="rounded-lg pl-3 pt-2 border border-pink-800 bg-base-200"
+                name="short_description"
+                placeholder="short description"
+                rows="3"
+                cols="40"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-lg font-semibold">
+                Long Description
+              </span>
+            </label>
+            <textarea
+              className="rounded-lg pl-3 pt-2 border border-pink-800 bg-base-200"
+              name="long_description"
+              placeholder="long description"
+              rows="5"
+              cols="40"
+              required
+            ></textarea>
+          </div>
+
+          <div className="flex justify-center my-4">
+            <input
+              type="submit"
+              value="Add"
+              className="btn btn-md border border-pink-800 text-pink-800 text-lg font-bold"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default AddBlog;
