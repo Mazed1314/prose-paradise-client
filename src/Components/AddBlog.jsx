@@ -145,6 +145,7 @@ const AddBlog = () => {
                 <option value="Novel">Novel</option>
                 <option value="Fiction">Fiction </option>
                 <option value="Epic">Epic</option>
+                <option value="Comic">Comic</option>
               </select>
             </div>
             <div className="form-control col-span-3">

@@ -22,7 +22,7 @@ const Login = () => {
       .then((userCredential) => {
         // console.log(userCredential.user);
         if (userCredential.user) {
-          navigate(-1);
+          navigate(location?.state || "/", { replace: true });
           Swal.fire({
             title: "Successfully Google Login!",
             icon: "success",
@@ -42,7 +42,7 @@ const Login = () => {
       .then((userCredential) => {
         console.log(userCredential.user);
         if (userCredential.user) {
-          navigate(-1);
+          navigate(location?.state || "/", { replace: true });
           Swal.fire({
             title: "Successfully Github Login!",
             icon: "success",
@@ -65,7 +65,7 @@ const Login = () => {
       .then((userCredential) => {
         // console.log(userCredential.user);
         if (userCredential.user) {
-          navigate(location?.state ? location?.state : "/");
+          navigate(location?.state || "/", { replace: true });
           Swal.fire({
             title: "Successfully Login!",
             icon: "success",

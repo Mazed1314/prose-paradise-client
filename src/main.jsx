@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: "/all-blogs",
         element: <AllBlog></AllBlog>,
-        loader: () => fetch("https://prose-paradise-server.vercel.app/blog"),
+        // loader: () => fetch("https://prose-paradise-server.vercel.app/blog"),
       },
       {
         path: "/featured-blogs",

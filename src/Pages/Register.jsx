@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { updateProfile } from "firebase/auth";
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -73,9 +73,9 @@ const Register = () => {
 
   return (
     <div className="hero md:min-h-screen rounded-t-md">
-      {/* <Helmet>
+      <Helmet>
         <title>Register</title>
-      </Helmet> */}
+      </Helmet>
       <div className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-2xl md:text-5xl font-bold">
