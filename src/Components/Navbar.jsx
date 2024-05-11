@@ -55,31 +55,37 @@ const Navbar = () => {
         Add Blog
       </NavLink>
 
-      <div className="lg:block md:hidden block lg:space-x-5">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
-          }
-          to="/all-blogs"
-        >
-          All Blogs
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "md:border-b-4 pb-2 border-black font-bold" : "font-bold"
-          }
-          to="/featured-blogs"
-        >
-          Featured Blogs
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "border-b-4 pb-2 border-black font-bold" : "font-bold"
-          }
-          to="/wish-list"
-        >
-          WishList
-        </NavLink>
+      <div className="lg:block md:hidden block">
+        <div className="flex flex-col md:gap-4 md:flex-row">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "md:border-b-4 pb-2 border-black font-bold"
+                : "font-bold"
+            }
+            to="/all-blogs"
+          >
+            All Blogs
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "md:border-b-4 pb-2 border-black font-bold"
+                : "font-bold"
+            }
+            to="/featured-blogs"
+          >
+            Featured Blogs
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "border-b-4 pb-2 border-black font-bold" : "font-bold"
+            }
+            to="/wish-list"
+          >
+            WishList
+          </NavLink>
+        </div>
       </div>
 
       <li className="md:block lg:hidden hidden">
@@ -168,7 +174,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden md:flex">
-          <ul className="menu menu-horizontal px-1 flex gap-8">{navLinks}</ul>
+          <ul className="menu menu-horizontal px-1 gap-4">{navLinks}</ul>
         </div>
 
         <div className="navbar-end">
@@ -247,10 +253,13 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className=" hover:font-semibold text-blac mr-3">
+              <Link
+                to="/login"
+                className="font-medium hover:text-gray-500 mr-3"
+              >
                 <u>Login</u>
               </Link>
-              <Link to="/register" className=" hover:font-semibold text-black">
+              <Link to="/register" className="font-medium hover:text-gray-500 ">
                 <u>Register</u>
               </Link>
             </>

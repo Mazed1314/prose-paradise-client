@@ -58,31 +58,35 @@ const BlogCard = ({ Blog }) => {
   return (
     <div>
       <div className="">
-        <div className="rounded border h-full">
+        <div className="rounded border shadow-xl">
           <figure>
             <img src={image} alt="image" className="w-full h-[200px]" />
           </figure>
-          <div className="card-body">
-            <div className="flex justify-between">
+          <div className="p-4 h-[250px] flex flex-col justify-between">
+            <div className="px-0 flex justify-between">
               <h2 className="card-title">{title}</h2>
-              <h2 className="">{category}</h2>
+              <div className="">
+                <span className="font-medium rounded-full py-1 px-2 bg-gray-200">
+                  {category}
+                </span>
+              </div>
             </div>
+            <p>{short_description}</p>
 
-            <p>{short_description}...</p>
-          </div>
-          <div className="flex justify-around gap-4 my-6">
-            <NavLink
-              to={`/view-details/${_id}`}
-              className="px-1 text-center rounded border border-black bg-transparent hover:bg-black hover:text-white"
-            >
-              View Details
-            </NavLink>
-            <NavLink
-              onClick={handleWishList}
-              className="px-1 text-center rounded text-yellow-600 border border-yellow-600 bg-transparent hover:bg-yellow-600 hover:text-white"
-            >
-              Add WishList
-            </NavLink>
+            <div className="flex justify-around gap-4 my-3">
+              <NavLink
+                to={`/view-details/${_id}`}
+                className="px-1 text-center font-semibold rounded border border-black bg-transparent hover:bg-black hover:text-white"
+              >
+                View Details
+              </NavLink>
+              <NavLink
+                onClick={handleWishList}
+                className="px-1 text-center font-semibold rounded text-yellow-600 border border-yellow-600 bg-transparent hover:bg-yellow-600 hover:text-white"
+              >
+                Add WishList
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>

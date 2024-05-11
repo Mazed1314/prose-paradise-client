@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-300 py-12 pb-0 mx-0">
+    <footer className=" bg-black text-gray-300 border-gray-300 py-12 pb-0 mx-0">
       <div className="mx-auto px-2 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="mb-8">
@@ -32,7 +32,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="hover:text-pink-800  transition duration-300"
+                  className="hover:text-white transition duration-300"
                 >
                   <FaFacebookF />
                 </a>
@@ -40,7 +40,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="hover:text-pink-800  transition duration-300"
+                  className="hover:text-yellow-500  transition duration-300"
                 >
                   <FaTwitter />
                 </a>
@@ -48,7 +48,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="hover:text-pink-800  transition duration-300"
+                  className="hover:text-white  transition duration-300"
                 >
                   <FaInstagram />
                 </a>
@@ -56,7 +56,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="hover:text-pink-800  transition duration-300"
+                  className="hover:text-white  transition duration-300"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container border-t border-gray-300 mx-aut py-8 rounded-b-lg">
+      <div className="border-t mx-auto py-8 rounded-b-lg">
         <div className="flex justify-center">
           <p className="text-sm">
             &copy; 2024 Prose Paradise. All rights reserved.
