@@ -67,6 +67,18 @@ const Navbar = () => {
           >
             All Blogs
           </NavLink>
+          {user && (
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "md:border-b-4 pb-2 border-black font-bold"
+                  : "font-bold"
+              }
+              to="/my-blogs"
+            >
+              My Blogs
+            </NavLink>
+          )}
           <NavLink
             className={({ isActive }) =>
               isActive
@@ -103,6 +115,18 @@ const Navbar = () => {
               >
                 All Blogs
               </NavLink>
+              {user && (
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "md:border-b-4 pb-2 border-black font-bold"
+                      : "font-bold"
+                  }
+                  to="/my-blogs"
+                >
+                  My Blogs
+                </NavLink>
+              )}
             </li>
             <li>
               <NavLink

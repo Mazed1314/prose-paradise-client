@@ -49,14 +49,16 @@ const WishList = () => {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 my-6">
-            {/* dropdown */}
+          <div className="md:w-9/12 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 my-6">
+              {/* dropdown */}
 
-            {item?.map((card) => (
-              <>
-                <WishListCard key={card._id} card={card}></WishListCard>
-              </>
-            ))}
+              {item?.map((card) => (
+                <>
+                  <WishListCard key={card._id} card={card}></WishListCard>
+                </>
+              ))}
+            </div>
           </div>
         </>
       )}

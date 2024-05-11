@@ -18,6 +18,8 @@ import WishList from "./Pages/WishList";
 import FeaturedBlog from "./Pages/FeaturedBlog";
 import AllBlog from "./Pages/AllBlog";
 import ViewDetails from "./Pages/ViewDetails";
+import MyBlog from "./Pages/MyBlog";
+import EditBlog from "./Pages/EditBlog";
 
 const router = createBrowserRouter([
   {
@@ -65,7 +67,6 @@ const router = createBrowserRouter([
       {
         path: "/all-blogs",
         element: <AllBlog></AllBlog>,
-        // loader: () => fetch("https://prose-paradise-server.vercel.app/blog"),
       },
       {
         path: "/featured-blogs",
@@ -82,6 +83,24 @@ const router = createBrowserRouter([
             <WishList></WishList>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/my-blogs",
+        element: (
+          <PrivateRoute>
+            <MyBlog></MyBlog>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/edit-blog/:id",
+        element: (
+          <PrivateRoute>
+            <EditBlog></EditBlog>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://prose-paradise-server.vercel.app/blog/${params.id}`),
       },
       {
         path: "/view-details/:_id",

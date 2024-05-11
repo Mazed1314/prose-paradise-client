@@ -14,7 +14,9 @@ const AllBlog = () => {
 
   useEffect(() => {
     const getBlog = async () => {
-      const { data } = await axios(`http://localhost:5000/blog`);
+      const { data } = await axios(
+        `https://prose-paradise-server.vercel.app/blog`
+      );
       // setBlog(data);
       setCount([data.length]);
     };
@@ -23,7 +25,7 @@ const AllBlog = () => {
   useEffect(() => {
     const getBlog = async () => {
       const { data } = await axios(
-        `http://localhost:5000/all-blog?page=${currentPage}&size=${blogPerPage}&filter=${filter}&search=${search}`
+        `https://prose-paradise-server.vercel.app/all-blog?page=${currentPage}&size=${blogPerPage}&filter=${filter}&search=${search}`
       );
       setBlog(data);
       // setCount([data.length]);

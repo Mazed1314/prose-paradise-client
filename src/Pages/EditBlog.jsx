@@ -1,26 +1,33 @@
-import { useContext } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddBlog = () => {
-  const { user } = useContext(AuthContext);
+const EditBlog = () => {
+  const item = useLoaderData();
   const navigate = useNavigate();
-  const handleAddBlog = (event) => {
-    event.preventDefault();
+  const {
+    _id,
+    title,
+    category,
+    short_description,
+    long_description,
+    image,
+    user_name,
+    email,
+  } = item;
 
-    const form = event.target;
+  const handleUpdateCraft = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
 
     const title = form.title.value;
     const category = form.category_name.value;
     const short_description = form.short_description.value;
     const long_description = form.long_description.value;
     const image = form.photo.value;
-    const email = form.email.value;
-    const user_name = form.user_name.value;
 
-    const addNewBlog = {
+    const updateBlog = {
       title,
       category,
       short_description,
@@ -29,24 +36,21 @@ const AddBlog = () => {
       email,
       user_name,
     };
-
-    console.log(addNewBlog);
-    const url = "https://prose-paradise-server.vercel.app/addBlog";
-    // send data to the server
-    fetch(url, {
-      method: "POST",
+    console.log(updateBlog);
+    fetch(`https://prose-paradise-server.vercel.app/blog/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(addNewBlog),
+      body: JSON.stringify(updateBlog),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Blog Added Successfully",
+            text: "Updated Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -58,47 +62,11 @@ const AddBlog = () => {
   return (
     <div>
       <Helmet>
-        <title>Add Blog</title>
+        <title>Edit Card</title>
       </Helmet>
       <div className="bg-transparent border border-yellow-600 shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
-        <h2 className="text-3xl text-center font-semibold my-4">Add a Blog</h2>
-        <form onSubmit={handleAddBlog}>
-          <div className="flex flex-col md:flex-row gap-5 w-full">
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  User Name
-                </span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="user_name"
-                  defaultValue={user.displayName}
-                  placeholder="user name"
-                  className="input input-bordered border-yellow-600 w-full"
-                  required
-                />
-              </label>
-            </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  User Email
-                </span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="email"
-                  defaultValue={user.email}
-                  placeholder="user email"
-                  className="input input-bordered border-yellow-600 w-full"
-                  required
-                />
-              </label>
-            </div>
-          </div>
+        <h2 className="text-3xl text-center font-semibold my-4">Edit Blog</h2>
+        <form onSubmit={handleUpdateCraft}>
           <div className="w-full">
             <div className="form-control w-full">
               <label className="label">
@@ -107,6 +75,7 @@ const AddBlog = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={title}
                   name="title"
                   placeholder="title"
                   className="input input-bordered border-yellow-600 w-full"
@@ -121,6 +90,7 @@ const AddBlog = () => {
             </label>
             <label className="input-group">
               <input
+                defaultValue={image}
                 type="text"
                 name="photo"
                 placeholder="give image URL"
@@ -138,6 +108,7 @@ const AddBlog = () => {
                 </span>
               </label>
               <select
+                defaultValue={category}
                 name="category_name"
                 className="rounded-md border border-yellow-600"
               >
@@ -157,6 +128,7 @@ const AddBlog = () => {
               <textarea
                 className="rounded-lg pl-3 pt-2 border border-yellow-600 bg-base-200"
                 name="short_description"
+                defaultValue={short_description}
                 placeholder="short description"
                 rows="3"
                 cols="40"
@@ -174,6 +146,7 @@ const AddBlog = () => {
             <textarea
               className="rounded-lg pl-3 pt-2 border border-yellow-600 bg-base-200"
               name="long_description"
+              defaultValue={long_description}
               placeholder="long description"
               rows="5"
               cols="40"
@@ -183,8 +156,9 @@ const AddBlog = () => {
 
           <div className="flex justify-center my-4">
             <input
+              defaultValue={image}
               type="submit"
-              value="Add"
+              value="Update"
               className="btn btn-md border text-white bg-black text-lg font-bold"
             />
           </div>
@@ -194,4 +168,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default EditBlog;
