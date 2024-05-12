@@ -48,10 +48,9 @@ const Comment = ({ info }) => {
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
-            title: "Success!",
-            text: "Blog Added Successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
+            text: "Thank You for comment",
+
+            confirmButtonText: "ok",
           });
         }
       });
