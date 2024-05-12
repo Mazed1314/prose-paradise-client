@@ -32,7 +32,6 @@ const AddBlog = () => {
       user_image,
     };
 
-    console.log(addNewBlog);
     const url = "https://prose-paradise-server.vercel.app/addBlog";
     // send data to the server
     fetch(url, {

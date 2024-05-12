@@ -62,7 +62,7 @@ const BlogCard = ({ Blog }) => {
           <figure>
             <img src={image} alt="image" className="w-full h-[200px]" />
           </figure>
-          <div className="p-4 h-[250px] flex flex-col justify-between">
+          <div className="p-4 h-auto flex flex-col justify-between">
             <div className="px-0 flex justify-between">
               <h2 className="card-title">{title}</h2>
               <div className="">
@@ -71,7 +71,7 @@ const BlogCard = ({ Blog }) => {
                 </span>
               </div>
             </div>
-            <p>{short_description}</p>
+            <p>{short_description.slice(0, 100)}</p>
 
             <div className="flex justify-around gap-4 my-3">
               <NavLink

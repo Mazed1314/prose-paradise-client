@@ -1,11 +1,27 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import Comment from "../Components/Comment";
 
 const ViewDetails = () => {
+  const { user } = useContext(AuthContext);
   const cards = useLoaderData();
   const { _id } = useParams();
+  // console.log(_id);
   const card = cards.find((blog) => blog._id == _id);
-  const { title, category, long_description, image } = card;
+  const { title, category, long_description, image, email } = card;
+  const blogOwner = email;
+  const currentUserEmail = user.email;
+  const currentUserName = user.displayName;
+  const currentUserImage = user.photoURL;
+  const info = {
+    blogOwner,
+    currentUserEmail,
+    currentUserName,
+    currentUserImage,
+    _id,
+  };
   return (
     <div className="bg-transparent">
       <div className="mx-2 md:mx-20 bg-transparent">
@@ -27,6 +43,10 @@ const ViewDetails = () => {
           </div>
         </div>
       </div>
+
+      {/* comment section */}
+
+      <Comment info={info}></Comment>
     </div>
   );
 };

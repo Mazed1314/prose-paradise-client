@@ -10,8 +10,7 @@ const FeaturedBlog = () => {
   useEffect(() => {
     const getBlog = async () => {
       const { data } = await axios(
-        // `https://prose-paradise-server.vercel.app/blog/top-posts`
-        `http://localhost:5000/api/top-posts`
+        `https://prose-paradise-server.vercel.app/api/top-posts`
       );
       setData(data);
     };
@@ -25,18 +24,9 @@ const FeaturedBlog = () => {
           <tr className="bg-black text-white">
             <th className="py-4 px-6 text-lg text-center">SI</th>
             <th className="py-4 px-6 text-lg text-center">Title</th>
-            <th className="text-center py-4 px-6 text-lg">
-              <div className="grid grid-cols-1 space-y-2">
-                <div className="w-full col-span-2">
-                  <span className="">Blog Owner</span>
-                </div>
-                <div className="w-full flex justify-around">
-                  <span className="px-3 text-center">Name</span>
-                  <span className="px-3 text-center">Photo</span>
-                </div>
-              </div>
-            </th>
-            <th className="py-4 px-6 text-lg border-b text-center">Action</th>
+            <th className="py-4 px-6 text-lg text-center">Blog Owner</th>
+            <th className="py-4 px-6 text-lg text-center">Owner Photo</th>
+            <th className="py-4 px-6 text-lg text-center">Action</th>
           </tr>
         </thead>
         {getData.map((blog, index) => (
@@ -46,20 +36,13 @@ const FeaturedBlog = () => {
               <td className="px-3 text-lg font-medium text-center">
                 {blog.title}
               </td>
-
-              <td className="text-center">
-                <div className="flex justify-around">
-                  <span className="flex flex-col justify-center">
-                    {blog.user_name}
-                  </span>
-                  <span className="flex flex-col justify-center">
-                    <img
-                      src={blog.user_image}
-                      alt="blog owner"
-                      className="h-14 w-14 border shadow-md object-cover rounded-full"
-                    />
-                  </span>
-                </div>
+              <td className="px-3 text-center">{blog.user_name}</td>
+              <td className="px-3 flex justify-center py-2">
+                <img
+                  src={blog.user_image}
+                  alt="blog owner"
+                  className="h-14 w-14 border shadow-md object-cover rounded-full"
+                />
               </td>
               <td className="px-3 text-lg font-medium text-center">
                 <NavLink

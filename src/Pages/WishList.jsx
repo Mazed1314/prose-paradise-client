@@ -40,7 +40,7 @@ const WishList = () => {
           </p>
           <div className="flex justify-center">
             <button
-              className="bg-white btn btn-sm text-pink-800 border border-pink-800 px-2 rounded-lg"
+              className="bg-white btn btn-sm text-black border border-black px-2 rounded-lg"
               onClick={() => Navigate("/all-blogs")}
             >
               All blogs

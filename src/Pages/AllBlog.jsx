@@ -52,9 +52,9 @@ const AllBlog = () => {
   };
 
   return (
-    <div className=" min-h-screen p-2">
-      <div className="flex gap-2 md:w-7/12">
-        <label className="form-control w-4/12">
+    <div className="min-h-screen p-2">
+      <div className="flex flex-col-reverse md:flex-row gap-2 justify-end">
+        <label className="">
           <div className="label">
             <span className="label-text">Filtered by category</span>
           </div>
@@ -77,20 +77,20 @@ const AllBlog = () => {
         </label>
         <form onSubmit={handleSearch} action="">
           <label className="form-control w-full">
-            <div className="label">
-              <span className="label-text">Search blogs by blog title</span>
+            <div className="">
+              <span className="label-text">Search blog by blog title</span>
             </div>
             <div className="flex">
               <input
                 type="text"
                 name="title"
                 placeholder="Type here "
-                className="input input-bordered w-full"
+                className="input input-sm rounded-none rounded-l-md border-black border-r-0 input-bordered w-full"
               />
               <input
                 type="submit"
                 value="search"
-                className="btn btn-md border text-white bg-black text-lg font-bold"
+                className="btn btn-sm rounded-none border-black rounded-r-md border text-white bg-black text-lg font-bold"
               />
             </div>
           </label>

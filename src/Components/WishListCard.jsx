@@ -38,7 +38,7 @@ const WishListCard = ({ card }) => {
           <figure>
             <img src={image} alt="image" className="w-full h-[200px]" />
           </figure>
-          <div className="p-4 h-[250px] flex flex-col justify-between">
+          <div className="p-4 h-auto flex flex-col justify-between">
             <div className="px-0 flex justify-between">
               <h2 className="card-title">{title}</h2>
               <div className="">
@@ -47,7 +47,9 @@ const WishListCard = ({ card }) => {
                 </span>
               </div>
             </div>
-            <p>{short_description}</p>
+            <p className="text-gray-700 py-2">
+              {short_description.slice(0, 100)}
+            </p>
 
             <div className="flex justify-around gap-4 my-3">
               <NavLink
@@ -60,7 +62,7 @@ const WishListCard = ({ card }) => {
                 onClick={() => handledeleteWishList(_id)}
                 className="px-1 text-center rounded text-yellow-600 border border-yellow-600 bg-transparent hover:bg-yellow-600 hover:text-white"
               >
-                Delete WishList
+                Remove
               </NavLink>
             </div>
           </div>
