@@ -185,14 +185,15 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="text-xl">
+          <a>
             {/* <img
               src="/public/images/2-removebg-preview.png"
               className="w-[40px] h-auto"
               alt=""
             />{" "} */}
-            Prose
-            <span className="text-amber-600 font-semibold text-xl">
+            <span className="text-xl font-semibold">Prose</span>
+
+            <span className="text-white bg-black rounded-lg px-1 font-semibold text-xl">
               Paradise
             </span>
           </a>
@@ -250,7 +251,7 @@ const Navbar = () => {
                     role="button"
                     className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="w-10 rounded-full">
+                    <div className="w-10 border-2 border-black rounded-full">
                       <img alt="user" src={user.photoURL} />
                     </div>
                   </div>

@@ -21,7 +21,7 @@ const AllBlog = () => {
       setCount([data.length]);
     };
     getBlog();
-  }, [filter, search]);
+  }, []);
   useEffect(() => {
     const getBlog = async () => {
       const { data } = await axios(

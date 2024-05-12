@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const user_image = user.photoURL;
   const handleAddBlog = (event) => {
     event.preventDefault();
 
@@ -28,6 +29,7 @@ const AddBlog = () => {
       image,
       email,
       user_name,
+      user_image,
     };
 
     console.log(addNewBlog);

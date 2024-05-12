@@ -35,36 +35,38 @@ const MyBlogCard = ({ card }) => {
     });
   };
   return (
-    <tr className="hover:bg-gray-50 border-b">
-      <td className="py-4 px-4 flex justify-start">
+    <tr className="hover:bg-gray-50 border-b py-1">
+      <td className="px-3">
         <img
           src={image}
           alt="table navigate ui"
-          className="h-16 w-16 object-cover bg-gray-300"
+          className="h-16 w-20 object-cover bg-gray-300"
         />
       </td>
-      <td className=" px-6 text-xl font-medium">{title}</td>
-      <td className=" px-6 text-xl font-medium">{short_description}</td>
-      <td className=" px-6 text-lg font-medium">{category}</td>
-      <td className=" flex gap-1">
-        <NavLink
-          to={`/view-details/${_id}`}
-          className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
-        >
-          <FaRegEye />
-        </NavLink>
-        <NavLink
-          to={`/edit-blog/${_id}`}
-          className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
-        >
-          <FiEdit />
-        </NavLink>
-        <NavLink
-          onClick={() => handleDelete(_id)}
-          className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
-        >
-          <MdOutlineDelete className="text-xl" />
-        </NavLink>
+      <td className="px-3 text-lg font-medium">{title}</td>
+      <td className="px-3">{short_description}</td>
+      <td className="px-3 text-lg font-medium">{category}</td>
+      <td className="px-3 text-lg font-medium">
+        <div className="flex gap-1">
+          <NavLink
+            to={`/view-details/${_id}`}
+            className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
+          >
+            <FaRegEye />
+          </NavLink>
+          <NavLink
+            to={`/edit-blog/${_id}`}
+            className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
+          >
+            <FiEdit />
+          </NavLink>
+          <NavLink
+            onClick={() => handleDelete(_id)}
+            className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
+          >
+            <MdOutlineDelete className="text-xl" />
+          </NavLink>
+        </div>
       </td>
     </tr>
   );

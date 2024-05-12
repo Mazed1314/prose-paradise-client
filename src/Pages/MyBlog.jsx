@@ -44,7 +44,7 @@ const MyBlog = () => {
       ) : (
         <>
           <div className="overflow-x-auto">
-            <table className="min-w-[90%] shadow-md border mx-auto border-gray-100 my-6">
+            <table className="min-w-[90%] shadow-md border mx-auto border-gray-200 my-6">
               <thead>
                 <tr className="bg-black text-white">
                   <th className="py-4 px-6 text-lg text-left border-b">
