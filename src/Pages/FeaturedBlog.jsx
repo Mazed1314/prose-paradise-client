@@ -33,9 +33,7 @@ const FeaturedBlog = () => {
           <>
             <tr className="hover:bg-gray-50 border-b py-1">
               <td className="px-3 text-center">{index + 1}</td>
-              <td className="px-3 text-lg font-medium text-center">
-                {blog.title}
-              </td>
+              <td className="px-3 text-lg font-medium">{blog.title}</td>
               <td className="px-3 text-center">{blog.blogger_name}</td>
               <td className="px-3 flex justify-center py-2">
                 <img

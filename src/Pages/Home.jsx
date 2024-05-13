@@ -4,20 +4,27 @@ import Newsletter from "../Components/Newsletter";
 import RecentBlog from "../Components/RecentBlog";
 import { NavLink } from "react-router-dom";
 import { CgArrowTopRight } from "react-icons/cg";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
     <div>
       {/* banner sction */}
-      <div className="">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.9, delay: 0.25 }}
+      >
         <Banner></Banner>
-      </div>
+      </motion.div>
       {/* recent blog sction */}
       <div className="">
         <div className="flex justify-between">
-          <span className="flex">
-            <FaStarOfLife />
-            <span className="text-3xl">Recent Blolg</span>
+          <span className="flex gap-2">
+            <FaStarOfLife className="mt-3 text-xl text-blue-700 " />
+            <span className="text-3xl font-semibold">
+              Recent <span className="text-blue-700">Blolg</span>
+            </span>
           </span>
           <NavLink
             className={
@@ -30,7 +37,7 @@ const Home = () => {
         </div>
         <RecentBlog></RecentBlog>
       </div>
-      {/* newsletter sction */}
+      {/* newsletter sction */}{" "}
       <div className="my-10">
         <Newsletter></Newsletter>
       </div>

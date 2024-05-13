@@ -48,25 +48,24 @@ const WishListCard = ({ card }) => {
           <figure>
             <img src={image} alt="image" className="w-full h-[200px]" />
           </figure>
-          <div className="p-4 h-auto flex flex-col justify-between">
-            <div className="px-0 flex justify-between">
-              <h2 className="card-title">{title}</h2>
+          <div className="px-4 py-2 h-auto flex flex-col justify-between">
+            <h2 className="card-title pb-2">{title}</h2>
+            <div className="flex justify-between">
+              <div className="mb-2 text-gray-600">
+                By <span className="font-medium">{blogger_name}</span>{" "}
+                <span className="flex">
+                  <MdDateRange className="mt-1" />
+                  {publishDate}
+                </span>
+              </div>
               <div className="">
                 <span className="font-medium rounded-full py-1 px-2 bg-gray-200">
                   {category}
                 </span>
               </div>
             </div>
-            <div className="mb-2 text-gray-600">
-              By <span className="font-medium">{blogger_name}</span>{" "}
-              <span className="flex">
-                <MdDateRange className="mt-1" />
-                {publishDate}
-              </span>
-            </div>
-            <p className="text-gray-700 py-2">
-              {short_description.slice(0, 100)}
-            </p>
+
+            <p>{short_description.slice(0, 100)}...</p>
 
             <div className="flex justify-around gap-4 my-3">
               <NavLink
@@ -77,7 +76,7 @@ const WishListCard = ({ card }) => {
               </NavLink>
               <NavLink
                 onClick={() => handledeleteWishList(_id)}
-                className="px-1 text-center rounded text-yellow-600 border border-yellow-600 bg-transparent hover:bg-yellow-600 hover:text-white"
+                className="px-1 text-center rounded text-white bg-red-600 hover:bg-blue-700 hover:text-white"
               >
                 Remove
               </NavLink>

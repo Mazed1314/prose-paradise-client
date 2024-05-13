@@ -161,7 +161,7 @@ const Navbar = () => {
     <>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-10">
             <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -186,16 +186,16 @@ const Navbar = () => {
             </ul>
           </div>
           <a>
-            {/* <img
-              src="/public/images/2-removebg-preview.png"
-              className="w-[40px] h-auto"
+            <img
+              src="/public/images/ProseParadise_removebg-preview.png"
+              className="w-[200px] h-full"
               alt=""
-            />{" "} */}
-            <span className="text-xl font-semibold">Prose</span>
+            />{" "}
+            {/* <span className="text-xl font-semibold">Prose</span>
 
             <span className="text-white bg-black rounded-lg px-1 font-semibold text-xl">
               Paradise
-            </span>
+            </span> */}
           </a>
         </div>
         <div className="navbar-center hidden md:flex">

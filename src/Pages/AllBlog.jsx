@@ -68,13 +68,19 @@ const AllBlog = () => {
             className="rounded-md border  border-black"
           >
             <option value="">All</option>
-            <option value="Novel">Novel</option>
-            <option value="Fantasy">Fantasy </option>
-            <option value="Epic">Epic</option>
-            <option value="Comic">Comic</option>
-            <option value="Dystopian">Dystopian</option>
-            <option value="Gothic">Gothic</option>
-            <option value="Play">Play</option>
+            <option value="Travel">Travel</option>
+            <option value="Technology">Technology</option>
+            <option value="Finance">Finance</option>
+            <option value="News">News</option>
+            <option value="Literature">Literature</option>
+            <option value="Fashion">Fashion </option>
+            <option value="Beauty">Beauty</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Parenting">Parenting</option>
+            <option value="Food">Food</option>
+            <option value="Health">Health</option>
+            <option value="Art&Craft">Art&Craft</option>
+            <option value="Photography">Photography</option>
           </select>
         </label>
         <form onSubmit={handleSearch} action="">

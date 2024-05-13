@@ -43,7 +43,6 @@ const Comment = ({ info }) => {
       blog_id,
       commentTime,
     };
-    e.target.comment.value = null;
 
     const url = "https://prose-paradise-server.vercel.app/com";
     // send data to the server
@@ -63,6 +62,7 @@ const Comment = ({ info }) => {
 
             confirmButtonText: "ok",
           });
+          e.target.comment.value = null;
         }
       });
   };

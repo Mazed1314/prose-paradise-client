@@ -7,8 +7,6 @@ import { Helmet } from "react-helmet";
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const blogger_image = user.photoURL;
-
   const handleAddBlog = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,8 +15,9 @@ const AddBlog = () => {
     const short_description = form.short_description.value;
     const long_description = form.long_description.value;
     const image = form.photo.value;
-    const email = form.email.value;
-    const blogger_name = form.user_name.value;
+    const email = user.email;
+    const blogger_name = user.displayName;
+    const blogger_image = user.photoURL;
     const publishDate = new Date().toISOString().split("T")[0];
 
     const addNewBlog = {
@@ -32,6 +31,7 @@ const AddBlog = () => {
       blogger_image,
       publishDate,
     };
+    console.log(addNewBlog);
 
     const url = "https://prose-paradise-server.vercel.app/addBlog";
     // send data to the server
@@ -65,57 +65,19 @@ const AddBlog = () => {
       <div className="bg-transparent border border-black shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
         <h2 className="text-3xl text-center font-semibold my-4">Add a Blog</h2>
         <form onSubmit={handleAddBlog}>
-          <div className="flex flex-col md:flex-row gap-5 w-full">
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  User Name
-                </span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="user_name"
-                  defaultValue={user.displayName}
-                  placeholder="user name"
-                  className="input input-bordered border-black w-full"
-                  required
-                />
-              </label>
-            </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-lg font-semibold">
-                  User Email
-                </span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="email"
-                  defaultValue={user.email}
-                  placeholder="user email"
-                  className="input input-bordered border-black w-full"
-                  required
-                />
-              </label>
-            </div>
-          </div>
-          <div className="w-full">
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-lg font-semibold">Title</span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="title"
-                  className="input input-bordered border-black w-full"
-                  required
-                />
-              </label>
-            </div>
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text text-lg font-semibold">Title</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="text"
+                name="title"
+                placeholder="title"
+                className="input input-bordered border-black w-full"
+                required
+              />
+            </label>
           </div>
           <div className="form-control w-full">
             <label className="label">
@@ -143,14 +105,19 @@ const AddBlog = () => {
                 name="category_name"
                 className="rounded-md border border-black"
               >
-                <option value="Poem">Poem</option>
-                <option value="Novel">Novel</option>
-                <option value="Fantasy">Fantasy </option>
-                <option value="Epic">Epic</option>
-                <option value="Comic">Comic</option>
-                <option value="Dystopian">Dystopian</option>
-                <option value="Gothic">Gothic</option>
-                <option value="Play">Play</option>
+                <option value="Travel">Travel</option>
+                <option value="Technology">Technology</option>
+                <option value="Finance">Finance</option>
+                <option value="News">News</option>
+                <option value="Literature">Literature</option>
+                <option value="Fashion">Fashion </option>
+                <option value="Beauty">Beauty</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Parenting">Parenting</option>
+                <option value="Food">Food</option>
+                <option value="Health">Health</option>
+                <option value="Art&Craft">Art&Craft</option>
+                <option value="Photography">Photography</option>
               </select>
             </div>
             <div className="form-control col-span-3">
