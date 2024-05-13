@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types";
+import { MdDateRange } from "react-icons/md";
 
 const Comment = ({ info }) => {
   const [item, setItem] = useState([]);
@@ -25,12 +26,22 @@ const Comment = ({ info }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const comment = e.target.comment.value;
+    const commentTime = new Date()
+      .toLocaleString("en", {
+        day: "numeric",
+        month: "short",
+        hour: "numeric",
+        minute: "numeric",
+        hour12: false,
+      })
+      .replace(",", "");
     const sendComment = {
       comment,
       currentUserEmail,
       currentUserName,
       currentUserImage,
       blog_id,
+      commentTime,
     };
     e.target.comment.value = null;
 
@@ -95,12 +106,18 @@ const Comment = ({ info }) => {
                   <div className="flex items-center">
                     <p className="flex">
                       <img
-                        className="mr-2 w-10 h-10 rounded-full"
+                        className="mr-2 w-10 h-10 border rounded-full"
                         src={card.currentUserImage}
                         alt="Michael Gough"
                       />
                       <span className="text-gray-700 text-xl font-semibold">
                         {card.currentUserName}
+                        <div className="text-sm">
+                          <span className="flex">
+                            <MdDateRange className="mt-1" />
+                            {card.commentTime}
+                          </span>
+                        </div>
                       </span>
                     </p>
                   </div>

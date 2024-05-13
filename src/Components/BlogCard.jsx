@@ -3,11 +3,20 @@ import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
+import { MdDateRange } from "react-icons/md";
 
 const BlogCard = ({ Blog }) => {
   const { user } = useContext(AuthContext);
-  const { _id, title, category, short_description, long_description, image } =
-    Blog;
+  const {
+    _id,
+    title,
+    category,
+    short_description,
+    long_description,
+    image,
+    blogger_name,
+    publishDate,
+  } = Blog;
 
   const name = user?.displayName;
   const email = user?.email;
@@ -22,6 +31,8 @@ const BlogCard = ({ Blog }) => {
       name,
       b_id,
       email,
+      blogger_name,
+      publishDate,
     };
     const url = "https://prose-paradise-server.vercel.app/wishList";
     {
@@ -65,11 +76,19 @@ const BlogCard = ({ Blog }) => {
           <div className="p-4 h-auto flex flex-col justify-between">
             <div className="px-0 flex justify-between">
               <h2 className="card-title">{title}</h2>
+
               <div className="">
                 <span className="font-medium rounded-full py-1 px-2 bg-gray-200">
                   {category}
                 </span>
               </div>
+            </div>
+            <div className="mb-2 text-gray-600">
+              By <span className="font-medium">{blogger_name}</span>{" "}
+              <span className="flex">
+                <MdDateRange className="mt-1" />
+                {publishDate}
+              </span>
             </div>
             <p>{short_description.slice(0, 100)}</p>
 

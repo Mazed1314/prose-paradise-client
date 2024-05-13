@@ -38,9 +38,9 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="hero-content  md:w-7/12 mx-auto flex-col lg:flex-row-reverse">
-            <img src={img_3} className="w-60 h-[300px] rounded-lg shadow-lg" />
+            <img src={img_3} className="w-60 h-[300px] rounded shadow-xl" />
             <div className="">
-              <h1 className="text-5xl font-bold">Whispers in the Wind</h1>
+              <h1 className="text-5xl font-bold">Beyond the Horizon</h1>
               <p className="py-6">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut
                 assumenda excepturi exercitationem quasi. In deleniti eaque aut
@@ -51,7 +51,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="hero-content  md:w-7/12 mx-auto flex-col lg:flex-row-reverse">
-            <img src={img_1} className="w-60 h-[300px] rounded-lg shadow-lg" />
+            <img src={img_1} className="w-60 h-[300px] rounded shadow-xl" />
             <div className="">
               <h1 className="text-5xl font-bold">Whispers in the Wind</h1>
               <p className="py-6">

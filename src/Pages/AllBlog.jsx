@@ -68,11 +68,13 @@ const AllBlog = () => {
             className="rounded-md border  border-black"
           >
             <option value="">All</option>
-            <option value="Poem">Poem</option>
             <option value="Novel">Novel</option>
-            <option value="Fiction">Fiction </option>
+            <option value="Fantasy">Fantasy </option>
             <option value="Epic">Epic</option>
             <option value="Comic">Comic</option>
+            <option value="Dystopian">Dystopian</option>
+            <option value="Gothic">Gothic</option>
+            <option value="Play">Play</option>
           </select>
         </label>
         <form onSubmit={handleSearch} action="">

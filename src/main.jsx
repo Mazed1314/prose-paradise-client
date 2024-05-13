@@ -70,11 +70,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/featured-blogs",
-        element: (
-          <PrivateRoute>
-            <FeaturedBlog></FeaturedBlog>
-          </PrivateRoute>
-        ),
+        element: <FeaturedBlog></FeaturedBlog>,
       },
       {
         path: "/wish-list",

@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <section className="bg-white">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
         <div className="flex flex-col items-center max-w-sm mx-auto text-center">
-          <p className="p-3 text-sm font-medium text-primary rounded-full bg-secondary bg-opacity-30 ">
+          <p className="p-3 text-sm font-medium text-white rounded-full bg-red-500 bg-opacity-80 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -24,10 +24,10 @@ const ErrorPage = () => {
             </svg>
           </p>
           <h1 className="mt-3 text-2xl font-semibold text-gray-800  md:text-3xl">
-            404 Error
+            404 Error !
           </h1>
           <h1 className="mt-3 text-2xl font-semibold text-gray-800  md:text-3xl">
-            Something Went Wrong! page not found
+            Something Went Wrong <br /> page not found
           </h1>
           <p className="mt-4 text-gray-500 ">Here are some helpful links:</p>
 

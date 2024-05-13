@@ -251,7 +251,7 @@ const Navbar = () => {
                     role="button"
                     className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="w-10 border-2 border-black rounded-full">
+                    <div className="w-10 border shadow rounded-full">
                       <img alt="user" src={user.photoURL} />
                     </div>
                   </div>

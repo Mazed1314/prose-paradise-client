@@ -1,9 +1,19 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { MdDateRange } from "react-icons/md";
 
 const WishListCard = ({ card }) => {
-  const { _id, b_id, title, category, short_description, image } = card;
+  const {
+    _id,
+    b_id,
+    title,
+    category,
+    short_description,
+    image,
+    blogger_name,
+    publishDate,
+  } = card;
 
   const handledeleteWishList = (id) => {
     console.log(id);
@@ -14,7 +24,7 @@ const WishListCard = ({ card }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`https://prose-paradise-server.vercel.app/wishList/${id}`, {
@@ -25,8 +35,8 @@ const WishListCard = ({ card }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", " remove from wish list.", "success");
-              window.location.reload();
             }
+            window.location.reload();
           });
       }
     });
@@ -46,6 +56,13 @@ const WishListCard = ({ card }) => {
                   {category}
                 </span>
               </div>
+            </div>
+            <div className="mb-2 text-gray-600">
+              By <span className="font-medium">{blogger_name}</span>{" "}
+              <span className="flex">
+                <MdDateRange className="mt-1" />
+                {publishDate}
+              </span>
             </div>
             <p className="text-gray-700 py-2">
               {short_description.slice(0, 100)}

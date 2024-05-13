@@ -36,10 +36,10 @@ const FeaturedBlog = () => {
               <td className="px-3 text-lg font-medium text-center">
                 {blog.title}
               </td>
-              <td className="px-3 text-center">{blog.user_name}</td>
+              <td className="px-3 text-center">{blog.blogger_name}</td>
               <td className="px-3 flex justify-center py-2">
                 <img
-                  src={blog.user_image}
+                  src={blog.blogger_image}
                   alt="blog owner"
                   className="h-14 w-14 border shadow-md object-cover rounded-full"
                 />

@@ -7,19 +7,19 @@ import { Helmet } from "react-helmet";
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const user_image = user.photoURL;
+  const blogger_image = user.photoURL;
+
   const handleAddBlog = (event) => {
     event.preventDefault();
-
     const form = event.target;
-
     const title = form.title.value;
     const category = form.category_name.value;
     const short_description = form.short_description.value;
     const long_description = form.long_description.value;
     const image = form.photo.value;
     const email = form.email.value;
-    const user_name = form.user_name.value;
+    const blogger_name = form.user_name.value;
+    const publishDate = new Date().toISOString().split("T")[0];
 
     const addNewBlog = {
       title,
@@ -28,8 +28,9 @@ const AddBlog = () => {
       long_description,
       image,
       email,
-      user_name,
-      user_image,
+      blogger_name,
+      blogger_image,
+      publishDate,
     };
 
     const url = "https://prose-paradise-server.vercel.app/addBlog";
@@ -61,7 +62,7 @@ const AddBlog = () => {
       <Helmet>
         <title>Add Blog</title>
       </Helmet>
-      <div className="bg-transparent border border-yellow-600 shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
+      <div className="bg-transparent border border-black shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
         <h2 className="text-3xl text-center font-semibold my-4">Add a Blog</h2>
         <form onSubmit={handleAddBlog}>
           <div className="flex flex-col md:flex-row gap-5 w-full">
@@ -77,7 +78,7 @@ const AddBlog = () => {
                   name="user_name"
                   defaultValue={user.displayName}
                   placeholder="user name"
-                  className="input input-bordered border-yellow-600 w-full"
+                  className="input input-bordered border-black w-full"
                   required
                 />
               </label>
@@ -94,7 +95,7 @@ const AddBlog = () => {
                   name="email"
                   defaultValue={user.email}
                   placeholder="user email"
-                  className="input input-bordered border-yellow-600 w-full"
+                  className="input input-bordered border-black w-full"
                   required
                 />
               </label>
@@ -110,7 +111,7 @@ const AddBlog = () => {
                   type="text"
                   name="title"
                   placeholder="title"
-                  className="input input-bordered border-yellow-600 w-full"
+                  className="input input-bordered border-black w-full"
                   required
                 />
               </label>
@@ -125,7 +126,7 @@ const AddBlog = () => {
                 type="text"
                 name="photo"
                 placeholder="give image URL"
-                className="input input-bordered border-yellow-600  w-full"
+                className="input input-bordered border-black  w-full"
                 required
               />
             </label>
@@ -140,13 +141,16 @@ const AddBlog = () => {
               </label>
               <select
                 name="category_name"
-                className="rounded-md border border-yellow-600"
+                className="rounded-md border border-black"
               >
                 <option value="Poem">Poem</option>
                 <option value="Novel">Novel</option>
-                <option value="Fiction">Fiction </option>
+                <option value="Fantasy">Fantasy </option>
                 <option value="Epic">Epic</option>
                 <option value="Comic">Comic</option>
+                <option value="Dystopian">Dystopian</option>
+                <option value="Gothic">Gothic</option>
+                <option value="Play">Play</option>
               </select>
             </div>
             <div className="form-control col-span-3">
@@ -156,7 +160,7 @@ const AddBlog = () => {
                 </span>
               </label>
               <textarea
-                className="rounded-lg pl-3 pt-2 border border-yellow-600 bg-base-200"
+                className="rounded-lg pl-3 pt-2 border border-black bg-base-200"
                 name="short_description"
                 placeholder="short description"
                 rows="3"
@@ -173,7 +177,7 @@ const AddBlog = () => {
               </span>
             </label>
             <textarea
-              className="rounded-lg pl-3 pt-2 border border-yellow-600 bg-base-200"
+              className="rounded-lg pl-3 pt-2 border border-black bg-base-200"
               name="long_description"
               placeholder="long description"
               rows="5"
