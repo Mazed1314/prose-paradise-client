@@ -37,7 +37,7 @@ const ViewDetails = () => {
     <div className="">
       <div className="mx-2 md:mx-20 bg-transparent">
         <Helmet>
-          <title> blog-details : {_id}</title>
+          <title>ProseParadise | blog-details : {_id}</title>
         </Helmet>
 
         <h2 className="text-center font-bold text-2xl my-6 pt-4 rounded-t-md">
@@ -69,7 +69,7 @@ const ViewDetails = () => {
           </p>
         </div>
         <div className="px-2 ">
-          <div className="w-10/12 mx-auto ">
+          <div className="w-full mx-4">
             <img src={image} alt="" className="w-full h-[200px] lg:h-[400px]" />
           </div>
         </div>

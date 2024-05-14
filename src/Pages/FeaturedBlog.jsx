@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { FaRegEye } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const FeaturedBlog = () => {
     const getBlog = async () => {
       const { data } = await axios(
         `https://prose-paradise-server.vercel.app/api/top-posts`
+        // `http://localhost:5000/api/top-posts`
       );
       setData(data);
     };
@@ -19,6 +21,9 @@ const FeaturedBlog = () => {
   console.log(getData);
   return (
     <div className="overflow-x-auto">
+      <Helmet>
+        <title>ProseParadise | Featured Blog</title>
+      </Helmet>
       <table className="min-w-[90%] shadow-md border mx-auto border-gray-200 my-6">
         <thead>
           <tr className="bg-black text-white">

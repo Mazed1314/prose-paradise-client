@@ -187,7 +187,7 @@ const Navbar = () => {
           </div>
           <a>
             <img
-              src="/public/images/ProseParadise_removebg-preview.png"
+              src="/images/ProseParadise_removebg-preview.png"
               className="w-[200px] h-full"
               alt=""
             />{" "}
@@ -261,7 +261,7 @@ const Navbar = () => {
                   className="space-y-1 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <NavLink to="/profile" className={"hover:font-bold"}>
-                    Profile/Update User
+                    Profile
                   </NavLink>
                   <NavLink
                     onClick={handleLogOut}

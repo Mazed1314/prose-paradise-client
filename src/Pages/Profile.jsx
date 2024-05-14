@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 // import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
@@ -9,9 +10,9 @@ const Profile = () => {
   // console.log(user);
   return (
     <div className="flex justify-center py-4 rounded-t-md ">
-      {/* <Helmet>
-        <title>Profile</title>
-      </Helmet> */}
+      <Helmet>
+        <title>ProseParadise | {user?.displayName}</title>
+      </Helmet>
       <div className="relative flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 card border contrast-125 border-pink-800 drop-shadow-2xl mb-4 shrink-0 w-full max-w-sm  bg-base-100">
         <img
           src={user?.photoURL}
@@ -24,7 +25,7 @@ const Profile = () => {
               {user?.displayName}
             </h2>
             <p className="px-5 text-xs sm:text-base dark:text-gray-600">
-              Artist
+              Blogger
             </p>
           </div>
           <div className="">

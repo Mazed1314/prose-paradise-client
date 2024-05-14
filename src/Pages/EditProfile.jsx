@@ -6,6 +6,7 @@ import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
@@ -37,6 +38,9 @@ const EditProfile = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>ProseParadise | Update User</title>
+      </Helmet>
       <div className="hero md:min-h-screen rounded-t-md">
         {/* <Helmet>
           <title>Edit user</title>

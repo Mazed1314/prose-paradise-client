@@ -2,6 +2,7 @@
 import axios from "axios";
 import BlogCard from "../Components/BlogCard";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const AllBlog = () => {
   // const getBlog = useLoaderData();
@@ -53,6 +54,9 @@ const AllBlog = () => {
 
   return (
     <div className="min-h-screen p-2">
+      <Helmet>
+        <title>ProseParadise | All Blog</title>
+      </Helmet>
       <div className="flex flex-col-reverse md:flex-row gap-2 justify-end">
         <label className="">
           <div className="label">

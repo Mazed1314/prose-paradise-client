@@ -62,7 +62,7 @@ const EditBlog = () => {
   return (
     <div>
       <Helmet>
-        <title>Edit Card</title>
+        <title>ProseParadise | Edit Blog</title>
       </Helmet>
       <div className="bg-transparent border border-blue-700 shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
         <h2 className="text-3xl text-center font-semibold my-4">Edit Blog</h2>

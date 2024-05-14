@@ -14,7 +14,10 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-center">
               About Prose Paradise
             </h4>
-            <p className="text-sm text-center"></p>
+            <p className="text-sm text-center">
+              Discover endless wonder on our blog,
+              <br /> your gateway to Prose Paradise.
+            </p>
           </div>
           <div className="mb-8 text-center">
             <h4 className="text-lg font-semibold mb-4 text-center">

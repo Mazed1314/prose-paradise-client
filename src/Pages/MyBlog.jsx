@@ -23,7 +23,7 @@ const MyBlog = () => {
   return (
     <div>
       <Helmet>
-        <title>My Blog</title>
+        <title>ProseParadise | My Blogs</title>
       </Helmet>
       {item < 1 ? (
         <div className=" h-96 flex flex-col justify-center">

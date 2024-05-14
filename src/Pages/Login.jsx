@@ -9,6 +9,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 // import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -82,9 +83,9 @@ const Login = () => {
 
   return (
     <div className="hero md:min-h-screen bg-transparent rounded-t-md">
-      {/* <Helmet>
-        <title>Login</title>
-      </Helmet> */}
+      <Helmet>
+        <title>ProseParadise | Login</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-2xl md:text-5xl font-bold">Login now!</h1>

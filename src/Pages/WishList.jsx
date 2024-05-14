@@ -27,7 +27,7 @@ const WishList = () => {
   return (
     <div>
       <Helmet>
-        <title>Wish-list</title>
+        <title>ProseParadise | Wish-list</title>
       </Helmet>
       {item < 1 ? (
         <div className=" h-96 flex flex-col justify-center">

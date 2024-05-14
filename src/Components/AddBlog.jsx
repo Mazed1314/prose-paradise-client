@@ -60,7 +60,7 @@ const AddBlog = () => {
   return (
     <div>
       <Helmet>
-        <title>Add Blog</title>
+        <title>ProseParadise | Add Blog</title>
       </Helmet>
       <div className="bg-transparent border border-black shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
         <h2 className="text-3xl text-center font-semibold my-4">Add a Blog</h2>

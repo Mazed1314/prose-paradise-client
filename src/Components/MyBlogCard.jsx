@@ -44,7 +44,7 @@ const MyBlogCard = ({ card }) => {
         />
       </td>
       <td className="px-3 text-lg font-medium">{title}</td>
-      <td className="px-3">{short_description}</td>
+      <td className="px-3">{short_description.slice(0, 80)}..</td>
       <td className="px-3 text-lg font-medium">{category}</td>
       <td className="px-3 text-lg font-medium">
         <div className="flex gap-1">
