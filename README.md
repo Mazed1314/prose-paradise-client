@@ -24,6 +24,7 @@ Dependencies/Packages :
     - react-sweetalert2,
     - react-toastify,
     - swiper slide,
+    - react-loading-skeleton,
 
 <!-- -------------------------------------------------------------------------------------- -->
 

@@ -6,8 +6,7 @@ import "swiper/css/pagination";
 
 const Banner = () => {
   const img_1 = "/images/what-does-the-bible-say-about-parenting-header.jpeg";
-  const img_2 =
-    "/images/erimage-9781666570625-coresourcedreamscape-2022-09-30t13-10.avif";
+  const img_2 = "/images/Welcome-to-a-fresh-week.jpg";
   const img_3 = "/images/1669132932650.jpg";
   const img_4 = "/images/54833611.jpg";
   // const img_5 = "/images/shutterstock_1008807274-scaled-e1580537536480.jpg";
@@ -50,12 +49,11 @@ const Banner = () => {
             />
             <div className=" my-auto">
               <h1 className="text-2xl text-center text-blue-400 lg:text-5xl font-bold [text-shadow:_0_1px_0_rgb(0_0_0_/_80%)]">
-                Chronicles of Avonlea
+                The Power of Positivity: Cultivating a Growth Mindset
               </h1>
               <p className="py-6 text-lg text-center text-gray-500">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                Harness the power of positivity and cultivate a growth mindset.
+                Embrace challenges as opportunities for growth and learning.
               </p>
             </div>
           </div>

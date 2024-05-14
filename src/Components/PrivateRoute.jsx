@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
@@ -8,11 +10,25 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="flex justify-center py-6">
-        <span className="loading loading-bars text-black loading-xs"></span>
-        <span className="loading loading-bars text-black loading-sm"></span>
-        <span className="loading loading-bars text-black loading-md"></span>
-        <span className="loading loading-bars text-black loading-lg"></span>
+      <div className="flex flex-col justify-center items-center my-10">
+        {/* Display skeleton while content loads */}
+        {/* <Skeleton height={100} width={200} /> */}
+
+        {/* Display skeleton for an image */}
+        {/* <Skeleton height={200} width={300} /> */}
+
+        {/* Display skeleton for a list */}
+        <ul className="">
+          <li>
+            <Skeleton width={200} />
+          </li>
+          <li>
+            <Skeleton width={200} />
+          </li>
+          <li>
+            <Skeleton width={200} />
+          </li>
+        </ul>
       </div>
     );
   }
