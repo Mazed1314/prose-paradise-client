@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+import { FaFacebook, FaGithub } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
@@ -90,7 +90,7 @@ const Login = () => {
         <div className="text-center">
           <h1 className="text-2xl md:text-5xl font-bold">Login now!</h1>
         </div>
-        <div className="card border contrast-125  border-pink-800 drop-shadow-2xl mb-4 shrink-0 w-full max-w-sm  bg-base-100">
+        <div className="card border contrast-125  border-black drop-shadow-2xl mb-4 shrink-0 w-full max-w-sm  bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
             <div className="form-control">
               <label className="label">
@@ -100,7 +100,7 @@ const Login = () => {
                 type="text"
                 name="email"
                 placeholder="email"
-                className="input input-bordered border-pink-800 "
+                className="input input-bordered border-black"
                 {...register("email", { required: true })}
               />
             </div>
@@ -112,7 +112,7 @@ const Login = () => {
                 type={show ? "password" : "text"}
                 name="password"
                 placeholder="password"
-                className="input input-bordered border-pink-800 "
+                className="input input-bordered border-black"
                 {...register("password", { required: true })}
               />
               <span
@@ -120,9 +120,9 @@ const Login = () => {
                 className="absolute top-12 right-2"
               >
                 {show ? (
-                  <FaRegEyeSlash className="text-xl text-pink-800" />
+                  <FaRegEyeSlash className="text-xl text-black" />
                 ) : (
-                  <FaRegEye className="text-xl text-pink-800" />
+                  <FaRegEye className="text-xl text-black" />
                 )}
               </span>
               <label className="label">
@@ -132,16 +132,14 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-pink-800 text-xl text-white">
-                Login
-              </button>
+              <button className="btn bg-black text-xl text-white">Login</button>
             </div>
           </form>
           <ToastContainer />
           <p className="text-center">
             New here ? Please{" "}
             <Link to="/register">
-              <button className="btn btn-active btn-link text-pink-800">
+              <button className="btn btn-active btn-link text-black">
                 Register
               </button>
             </Link>
@@ -152,7 +150,13 @@ const Login = () => {
               onClick={handleGoogle}
               className="px-2 border rounded-full btn btn-sm"
             >
-              <FcGoogle />
+              <FcGoogle className="text-lg" />
+            </a>
+            <a
+              // onClick={handleGoogle}
+              className="px-2 border rounded-full btn btn-sm"
+            >
+              <FaFacebook className="text-xl text-sky-600" />
             </a>
             <a
               onClick={handleGithub}

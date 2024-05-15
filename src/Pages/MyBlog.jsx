@@ -1,24 +1,25 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import axios from "axios";
 import MyBlogCard from "../Components/MyBlogCard";
+import { useQuery } from "@tanstack/react-query";
 
 const MyBlog = () => {
   const Navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const [item, setItem] = useState([]);
-  // console.log(user);
-  useEffect(() => {
-    axios
-      .get(`https://prose-paradise-server.vercel.app/my-blog/${user?.email}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        setItem(res.data);
-      });
-  }, [user]);
+
+  const { data: item = [] } = useQuery({
+    queryFn: () => getData(),
+    queryKey: ["my-blog"],
+  });
+  const getData = async () => {
+    const { data } = await axios(
+      `https://prose-paradise-server.vercel.app/my-blog/${user?.email}`
+    );
+    return data;
+  };
 
   return (
     <div>
@@ -34,7 +35,7 @@ const MyBlog = () => {
           <p className="mt-4 text-gray-500 text-center mb-2">For Add Blog</p>
           <div className="flex justify-center">
             <button
-              className="bg-white btn btn-sm text-pink-800 border border-pink-800 px-2 rounded-lg"
+              className="bg-white btn btn-sm text-black border border-black px-2 rounded-lg"
               onClick={() => Navigate("/add-blog")}
             >
               Add Blog

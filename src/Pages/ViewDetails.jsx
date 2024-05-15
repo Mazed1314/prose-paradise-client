@@ -69,8 +69,8 @@ const ViewDetails = () => {
           </p>
         </div>
         <div className="px-2 ">
-          <div className="w-full mx-4">
-            <img src={image} alt="" className="w-full h-[200px] lg:h-[400px]" />
+          <div className="w-full md:mx-4">
+            <img src={image} alt="" className="w-full h-[200px] lg:h-auto" />
           </div>
         </div>
 

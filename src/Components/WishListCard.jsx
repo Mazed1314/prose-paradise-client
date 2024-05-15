@@ -44,12 +44,12 @@ const WishListCard = ({ card }) => {
   return (
     <div>
       <div className="">
-        <div className="rounded border shadow-xl">
+        <div className="rounded border shadow-xl hover:shadow-2xl hover:border-blue-300">
           <figure>
             <img src={image} alt="image" className="w-full h-[200px]" />
           </figure>
           <div className="px-4 py-2 h-auto flex flex-col justify-between">
-            <h2 className="card-title pb-2">{title}</h2>
+            <h2 className="card-title pb-2">{title.slice(0, 40)}..</h2>
             <div className="flex justify-between">
               <div className="mb-2 text-gray-600">
                 By <span className="font-medium">{blogger_name}</span>{" "}

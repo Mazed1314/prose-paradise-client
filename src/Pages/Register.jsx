@@ -82,7 +82,7 @@ const Register = () => {
             Please Register here
           </h1>
         </div>
-        <div className="card shrink-0 w-full max-w-sm border border-pink-800 shadow-2xl my-2 bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm border border-black shadow-2xl my-2 bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -92,7 +92,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="name"
-                className="input input-bordered border-pink-800"
+                className="input input-bordered border-black"
                 required
               />
             </div>
@@ -104,7 +104,7 @@ const Register = () => {
                 type="text"
                 name="photoURL"
                 placeholder="Photo link"
-                className="input input-bordered border-pink-800"
+                className="input input-bordered border-black"
                 required
               />
             </div>
@@ -116,7 +116,7 @@ const Register = () => {
                 type="text"
                 name="email"
                 placeholder="email"
-                className="input input-bordered border-pink-800"
+                className="input input-bordered border-black"
                 required
               />
             </div>
@@ -128,7 +128,7 @@ const Register = () => {
                 type={show ? "password" : "text"}
                 name="password"
                 placeholder="password"
-                className="input input-bordered border-pink-800"
+                className="input input-bordered border-black"
                 required
               />
               <span
@@ -136,9 +136,9 @@ const Register = () => {
                 className="absolute top-12 right-2"
               >
                 {show ? (
-                  <FaRegEyeSlash className="text-xl text-pink-800" />
+                  <FaRegEyeSlash className="text-xl text-black" />
                 ) : (
-                  <FaRegEye className="text-xl text-pink-800" />
+                  <FaRegEye className="text-xl text-black" />
                 )}
               </span>
             </div>
@@ -146,7 +146,7 @@ const Register = () => {
               <p className="text-yellow-400 text-xl">{registerError}</p>
             )}
             <div className="form-control mt-6">
-              <button className="btn bg-pink-800 text-xl text-white">
+              <button className="btn bg-black text-xl text-white">
                 Register
               </button>
             </div>
@@ -156,7 +156,7 @@ const Register = () => {
           <p className="text-center px-2">
             Allready have an account ? please
             <Link to="/login">
-              <button className="btn btn-active text-pink-800 btn-link">
+              <button className="btn btn-active text-black btn-link">
                 Login
               </button>
             </Link>

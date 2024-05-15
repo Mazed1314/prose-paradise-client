@@ -54,7 +54,7 @@ const EditProfile = () => {
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form
               onSubmit={handleUpdate}
-              className="card-body pb-0 border border-pink-800 rounded-xl"
+              className="card-body pb-0 border border-black rounded-xl"
             >
               <div className="form-control">
                 <label className="label">
@@ -85,7 +85,7 @@ const EditProfile = () => {
               </div>
 
               <div className="form-control my-4 py-2">
-                <button className="btn btn-sm bg-sky-400 text-white">
+                <button className="btn btn-sm bg-black text-white">
                   Update
                 </button>
               </div>

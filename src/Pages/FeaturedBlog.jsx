@@ -1,24 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { FaRegEye } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const FeaturedBlog = () => {
-  const [getData, setData] = useState([]);
+  const { data: getBlog = [] } = useQuery({
+    queryFn: () => getData(),
+    queryKey: ["top-post"],
+  });
+  const getData = async () => {
+    const { data } = await axios(
+      `https://prose-paradise-server.vercel.app/api/top-posts`
+    );
+    return data;
+  };
 
-  useEffect(() => {
-    const getBlog = async () => {
-      const { data } = await axios(
-        `https://prose-paradise-server.vercel.app/api/top-posts`
-        // `http://localhost:5000/api/top-posts`
-      );
-      setData(data);
-    };
-    getBlog();
-  }, []);
-  console.log(getData);
   return (
     <div className="overflow-x-auto">
       <Helmet>
@@ -34,7 +31,7 @@ const FeaturedBlog = () => {
             <th className="py-4 px-6 text-lg text-center">Action</th>
           </tr>
         </thead>
-        {getData.map((blog, index) => (
+        {getBlog.map((blog, index) => (
           <>
             <tr className="hover:bg-gray-50 border-b py-1">
               <td className="px-3 text-center">{index + 1}</td>

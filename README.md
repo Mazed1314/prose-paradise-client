@@ -20,11 +20,13 @@ Dependencies/Packages :
     - react-helmet-async,
     - react-hook-form,
     - react-icons,
+    - localforage,
     - react-router-dom,
     - react-sweetalert2,
     - react-toastify,
     - swiper slide,
     - react-loading-skeleton,
+    - tanstack/react-query,
 
 <!-- -------------------------------------------------------------------------------------- -->
 

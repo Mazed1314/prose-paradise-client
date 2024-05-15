@@ -1,10 +1,20 @@
-import { useLoaderData } from "react-router-dom";
 import BlogCard from "./BlogCard";
 import PropTypes from "prop-types";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const RecentBlog = () => {
-  const getBlog = useLoaderData();
-  console.log(getBlog);
+  const { data: getBlog = [] } = useQuery({
+    queryFn: () => getData(),
+    queryKey: ["blog"],
+  });
+  const getData = async () => {
+    const { data } = await axios(
+      `https://prose-paradise-server.vercel.app/blog`
+    );
+    return data;
+  };
+  // console.log(getBlog);
 
   return (
     <div className="bg-no-repeat bg-cover p-2">

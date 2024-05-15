@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 
 const AllBlog = () => {
   // const getBlog = useLoaderData();
-  const [blogPerPage] = useState(6);
+  const [blogPerPage] = useState(9);
   const [blog, setBlog] = useState([]);
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState();

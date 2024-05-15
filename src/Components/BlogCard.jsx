@@ -69,42 +69,46 @@ const BlogCard = ({ Blog }) => {
   return (
     <div>
       <div className="">
-        <div className="rounded border shadow-xl">
-          <figure>
-            <img src={image} alt="image" className="w-full h-[200px]" />
-          </figure>
-          <div className="px-4 py-2 h-auto flex flex-col justify-between">
-            <h2 className="card-title pb-2">{title}</h2>
-            <div className="flex justify-between">
-              <div className="mb-2 text-gray-600">
-                By <span className="font-medium">{blogger_name}</span>{" "}
-                <span className="flex">
-                  <MdDateRange className="mt-1" />
-                  {publishDate}
-                </span>
-              </div>
+        <div className="rounded border shadow-xl ">
+          <div className="border hover:shadow-2xl hover:border-blue-300">
+            <figure>
+              <img src={image} alt="image" className="w-full h-[200px]" />
+            </figure>
+            <div className="px-4 py-2 h-auto flex flex-col justify-between ">
               <div className="">
-                <span className="font-medium rounded-full py-1 px-2 bg-gray-200">
-                  {category}
-                </span>
+                <h2 className="card-title pb-2">{title.slice(0, 40)}..</h2>
+                <div className="flex justify-between">
+                  <div className="mb-2 text-gray-600">
+                    By <span className="font-medium">{blogger_name}</span>{" "}
+                    <span className="flex">
+                      <MdDateRange className="mt-1" />
+                      {publishDate}
+                    </span>
+                  </div>
+                  <div className="">
+                    <span className="font-medium rounded-full py-1 px-2 bg-gray-200">
+                      {category}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <p>{short_description.slice(0, 100)}...</p>
+              <p>{short_description.slice(0, 80)}...</p>
 
-            <div className="flex justify-around gap-4 my-3">
-              <NavLink
-                to={`/view-details/${_id}`}
-                className="px-1 text-center font-semibold rounded border border-black bg-transparent hover:bg-black hover:text-white"
-              >
-                View Details
-              </NavLink>
-              <NavLink
-                onClick={handleWishList}
-                className="px-1 text-center font-semibold rounded text-blue-700 border border-blue-700 bg-transparent hover:bg-blue-700 hover:text-white"
-              >
-                Add WishList
-              </NavLink>
+              <div className="flex justify-around gap-4 my-3">
+                <NavLink
+                  to={`/view-details/${_id}`}
+                  className="px-1 text-center font-semibold  border border-black bg-transparent hover:bg-black hover:text-white"
+                >
+                  View Details
+                </NavLink>
+                <NavLink
+                  onClick={handleWishList}
+                  className="px-1 text-center font-semibold  text-blue-700 border border-blue-700 bg-transparent hover:bg-blue-700 hover:text-white"
+                >
+                  Add WishList
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>

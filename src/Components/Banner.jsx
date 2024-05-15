@@ -45,9 +45,9 @@ const Banner = () => {
           <div className="flex flex-col md:flex-row md:w-10/12 mx-auto">
             <img
               src={img_2}
-              className="w-60 mx-auto h-[300px] rounded-lg shadow-lg"
+              className="w-80 mx-auto h-[300px] rounded-lg shadow-lg"
             />
-            <div className=" my-auto">
+            <div className="px-2 my-auto">
               <h1 className="text-2xl text-center text-blue-400 lg:text-5xl font-bold [text-shadow:_0_1px_0_rgb(0_0_0_/_80%)]">
                 The Power of Positivity: Cultivating a Growth Mindset
               </h1>

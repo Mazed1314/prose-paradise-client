@@ -20,7 +20,9 @@ import AllBlog from "./Pages/AllBlog";
 import ViewDetails from "./Pages/ViewDetails";
 import MyBlog from "./Pages/MyBlog";
 import EditBlog from "./Pages/EditBlog";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +32,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://prose-paradise-server.vercel.app/blog"),
       },
       {
         path: "/login",
@@ -115,7 +116,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <HelmetProvider>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>

@@ -13,42 +13,40 @@ const Profile = () => {
       <Helmet>
         <title>ProseParadise | {user?.displayName}</title>
       </Helmet>
-      <div className="relative flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 card border contrast-125 border-pink-800 drop-shadow-2xl mb-4 shrink-0 w-full max-w-sm  bg-base-100">
+      <div className="relative flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 card border contrast-125 border-black drop-shadow-2xl mb-4 shrink-0 w-full max-w-sm  bg-base-100">
         <img
           src={user?.photoURL}
           alt=""
-          className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square"
+          className="w-32 h-32 mx-auto rounded-full bg-gray-500"
         />
-        <div className="space-y-4 text-center divide-y dark:divide-gray-300">
+        <div className="space-y-4 text-center divide-y ">
           <div className="my-2 space-y-1">
             <h2 className="text-xl font-semibold sm:text-2xl">
               {user?.displayName}
             </h2>
-            <p className="px-5 text-xs sm:text-base dark:text-gray-600">
-              Blogger
-            </p>
+            <p className="px-5 text-xs sm:text-base text-gray-600">Blogger</p>
           </div>
           <div className="">
             <p className="px-5 text-xs sm:text-base ">
               <span className="font-semibold">Email : </span>
-              <span className="dark:text-gray-600">{user?.email}</span>
+              <span className="text-gray-600">{user?.email}</span>
             </p>
             <p className="px-5 text-xs sm:text-base ">
               <span className=" font-semibold">ProviderId :</span>{" "}
-              <span className="dark:text-gray-600">
+              <span className="text-gray-600">
                 {user?.providerData[0]?.providerId}
               </span>
             </p>
           </div>
           <div className="flex justify-center pt-2 space-x-4 align-center">
             <Link to={"/edit-user"}>
-              <FaEdit className="absolute top-2 right-2 text-2xl hover:text-pink-800" />
+              <FaEdit className="absolute top-2 right-2 text-2xl hover:text-blue-600" />
             </Link>
             <a
               rel="noopener noreferrer"
               href="#"
               aria-label="GitHub"
-              className="p-2 rounded-md  hover:dark:text-pink-800"
+              className="p-2 rounded-md  hover:text-blue-600"
             >
               <svg
                 viewBox="0 0 496 512"
@@ -62,7 +60,7 @@ const Profile = () => {
               rel="noopener noreferrer"
               href="#"
               aria-label="Dribble"
-              className="p-2 rounded-md hover:text-pink-800"
+              className="p-2 rounded-md hover:text-blue-600"
             >
               <svg
                 viewBox="0 0 512 512"
@@ -76,7 +74,7 @@ const Profile = () => {
               rel="noopener noreferrer"
               href="#"
               aria-label="Twitter"
-              className="p-2 rounded-md hover:dark:text-pink-800"
+              className="p-2 rounded-md hover:text-blue-600"
             >
               <svg
                 viewBox="0 0 512 512"
@@ -90,7 +88,7 @@ const Profile = () => {
               rel="noopener noreferrer"
               href="#"
               aria-label="Email"
-              className="p-2 rounded-md hover:text-pink-800"
+              className="p-2 rounded-md hover:text-blue-600"
             >
               <svg
                 viewBox="0 0 512 512"
