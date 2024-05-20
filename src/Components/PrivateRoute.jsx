@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -7,6 +7,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
+  const location = useLocation();
 
   if (loading) {
     return (
@@ -37,8 +38,7 @@ const PrivateRoute = ({ children }) => {
   }
   return (
     <>
-      <Navigate to="/login" state={location.pathname} replace={true}></Navigate>
-      ;
+      <Navigate to="/login" state={{ from: location }} replace></Navigate>
     </>
   );
 };

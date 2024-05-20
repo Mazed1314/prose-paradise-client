@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const PostOfTheMonth = () => {
   return (
     <div
-      className="hero lg:h-[500px]"
+      className="hero bg-fixed lg:h-[500px]"
       style={{
         backgroundImage: "url(/images/post-of-the-month.webp)",
       }}

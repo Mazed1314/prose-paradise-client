@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaGithub } from "react-icons/fa";
@@ -14,21 +14,24 @@ import { Helmet } from "react-helmet";
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const location = useLocation();
   const { signInUser, signInWithGoogle, signInWithGitHub } =
     useContext(AuthContext);
   const [show, setShow] = useState("false");
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogle = () => {
     signInWithGoogle()
       .then((userCredential) => {
         // console.log(userCredential.user);
         if (userCredential.user) {
-          navigate(location?.state || "/", { replace: true });
           Swal.fire({
             title: "Successfully Google Login!",
             icon: "success",
             confirmButtonText: "Cool",
           });
+          navigate(from, { replace: true });
         }
       })
       .catch((error) => {
@@ -43,12 +46,12 @@ const Login = () => {
       .then((userCredential) => {
         console.log(userCredential.user);
         if (userCredential.user) {
-          navigate(location?.state || "/", { replace: true });
           Swal.fire({
             title: "Successfully Github Login!",
             icon: "success",
             confirmButtonText: "Cool",
           });
+          navigate(from, { replace: true });
         }
       })
       .catch((error) => {
@@ -66,12 +69,12 @@ const Login = () => {
       .then((userCredential) => {
         // console.log(userCredential.user);
         if (userCredential.user) {
-          navigate(location?.state || "/", { replace: true });
           Swal.fire({
             title: "Successfully Login!",
             icon: "success",
             confirmButtonText: "Cool",
           });
+          navigate(from, { replace: true });
         }
       })
       .catch((error) => {
